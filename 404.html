@@ -5,14 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirect | kot.la</title>
     <script>
+        /*PATH*/
         path = document.location.pathname
-        alert(path)
         if (path.startsWith("/")) {
             path = path.replace("/","")
         }
         path = path.replace(/\.[^/.]+$/, "")
+        path = path.toLowerCase()
         alert(path)
-    </script>
+
+
+
+        /*REQUESTS*/
+        let headersList = {
+        "Accept": "*/*",
+        }
+
+        let response = await fetch("https://api.github.com/repos/GameDesert/redirect/issues", { 
+        method: "GET",
+        headers: headersList
+        });
+
+        let data = await JSON.parse(response.text());
+        console.log(data);
+
+        /*IDENTIFY ISSUE*/
+        var issue_count = data.length;
+        console.log(issue_count)
+        for (var issue = 0; issue < issue_count; issue++) {
+            console.log(data[issue]["title"]);
+            //Do something
+        }
+            </script>
 </head>
 <body>
     
