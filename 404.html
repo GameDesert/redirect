@@ -8,8 +8,9 @@
         path = document.location.pathname
         alert(path)
         if (path.startsWith("/")) {
-            path[0].replace("/","")
+            path[0] = path[0].replace("/","")
         }
+        path = path.replace(/\.[^/.]+$/, "")
         alert(path)
     </script>
 </head>
