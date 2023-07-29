@@ -21,12 +21,12 @@
         "Accept": "*/*",
         }
 
-        let response = await fetch("https://api.github.com/repos/GameDesert/redirect/issues", { 
+        let response = fetch("https://api.github.com/repos/GameDesert/redirect/issues", { 
         method: "GET",
         headers: headersList
         });
 
-        let data = await JSON.parse(response.text());
+        let data = JSON.parse(response.text());
         console.log(data);
 
         /*IDENTIFY ISSUE*/
