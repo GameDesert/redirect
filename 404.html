@@ -28,19 +28,25 @@
 
             let data = await response.json();
             console.log(data);
-            return data;
+            
+            /*ID ISSUES*/
+            var issue_count = await data.length;
+            console.log(issue_count)
+            for (var issue = 0; issue < issue_count; issue++) {
+                if (data["user"]["id"] == 56128805) {
+                    if (data[issue]["title"] == path) {
+                        if (/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(data[issue]["body"]) == true) {
+                            window.location.replace(data[issue]["body"]);
+                        }
+                    }
+                }
+                //Do something
+            }
 
         }
-
-        /*IDENTIFY ISSUE*/
-        data = getIssues()[0];
-        var issue_count = data.length;
-        console.log(issue_count)
-        for (var issue = 0; issue < issue_count; issue++) {
-            console.log(data[issue]["title"]);
-            //Do something
-        }
-            </script>
+        
+        getIssues()
+    </script>
 </head>
 <body>
     
