@@ -12,7 +12,6 @@
         }
         path = path.replace(/\.[^/.]+$/, "")
         path = path.toLowerCase()
-        alert(path)
 
 
         async function getIssues() {
@@ -27,11 +26,9 @@
             });
 
             let data = await response.json();
-            console.log(data);
             
             /*ID ISSUES*/
             var issue_count = await data.length;
-            console.log(issue_count)
             for (var issue = 0; issue < issue_count; issue++) {
                 if (data[issue]["user"]["id"] == 56128805) {
                     if (data[issue]["title"] == path) {
@@ -41,11 +38,12 @@
                         }
                     }
                 }
-                //Do something
+                if (issue >= issue_count) {
+                    document.getElementById("title").innerText = "YOU ARE NOT BEING REDIRECTED"
+                    document.getElementById("subtitle").innerText = `THE LINK '${path}' IS NOT A VALID LINK`
+                    document.getElementById("manual").style.display = "none";
+                }
             }
-            document.getElementById("title").innerText = "YOU ARE NOT BEING REDIRECTED"
-            document.getElementById("subtitle").innerText = `THE LINK '${path}' IS NOT A VALID LINK`
-            document.getElementById("manual").style.display = "none";
         }
         
         getIssues()
