@@ -15,21 +15,25 @@
         alert(path)
 
 
+        async function getIssues() {
+            /*REQUESTS*/
+            let headersList = {
+            "Accept": "*/*",
+            }
 
-        /*REQUESTS*/
-        let headersList = {
-        "Accept": "*/*",
+            let response = await fetch("https://api.github.com/repos/GameDesert/redirect/issues", { 
+            method: "GET",
+            headers: headersList
+            });
+
+            let data = await response.json();
+            console.log(data);
+            return data;
+
         }
 
-        let response = fetch("https://api.github.com/repos/GameDesert/redirect/issues", { 
-        method: "GET",
-        headers: headersList
-        });
-
-        let data = response.json();
-        console.log(data);
-
         /*IDENTIFY ISSUE*/
+        data = getIssues()
         var issue_count = data.length;
         console.log(issue_count)
         for (var issue = 0; issue < issue_count; issue++) {
