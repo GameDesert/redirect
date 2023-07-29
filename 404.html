@@ -7,6 +7,10 @@
     <script>
         path = document.location.pathname
         alert(path)
+        if (path.startsWith("/")) {
+            path[0].replace("/","")
+        }
+        alert(path)
     </script>
 </head>
 <body>
