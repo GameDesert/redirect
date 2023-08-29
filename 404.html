@@ -38,7 +38,7 @@
                             break;
                         } else if (/^(?:mailto:[a-z]+@(?:kotla.eu)|(?:kot.la))$/.test(data[issue]["body"]) == true) {
                             document.getElementById("title").innerText = "YOUR CHOSEN EMAIL CLIENT IS OPENING"
-                            addr = data[issue]["body"].match(/^(?:mailto:([a-z]+@(?:kotla.eu)|(?:kot.la)))$/)
+                            addr = data[issue]["body"].match(/^(?:mailto:([a-z]+@(?:kotla.eu)|(?:kot.la)))$/)[1]
                             document.getElementById("manual").setAttribute("href",data[issue]["body"])
                             document.getElementById("subtitle").innerText = `YOU ARE WRITING AN EMAIL TO ${addr}`
                             window.location.replace(data[issue]["body"]);
