@@ -48,7 +48,7 @@
                     }
                 }
                 if (issue >= issue_count-1) {
-                    document.getElementById("title").innerText = "YOU ARE <span style='text-decoration: underline;'>NOT</span> BEING REDIRECTED"
+                    document.getElementById("title").innerHTML = "YOU ARE <span style='text-decoration: underline;'>NOT</span> BEING REDIRECTED"
                     document.getElementById("subtitle").innerText = `THE LINK '${path}' IS NOT A VALID LINK`
                     document.getElementById("manual").style.display = "none";
                 }
