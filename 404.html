@@ -44,9 +44,9 @@
                             window.location.replace(data[issue]["body"]);
                             break;
                             // ^(?:mailto:[a-z]+@(?:kotla.eu)|(?:kot.la))$
-                        } else if (/geo:-?[1-9.]+,-?[1-9.]+/gm.test(data[issue]["body"]) == true) {
+                        } else if (/geo:-?[1-9.]+,-?[1-9.]+/.test(data[issue]["body"]) == true) {
                             document.getElementById("title").innerText = "YOUR CHOSEN MAP CLIENT IS OPENING"
-                            coord = data[issue]["body"].match(/geo:(-?[1-9.]+,-?[1-9.]+)/gm)[1]
+                            coord = data[issue]["body"].match(/geo:(-?[1-9.]+,-?[1-9.]+)/)[1]
                             document.getElementById("manual").setAttribute("href",data[issue]["body"])
                             document.getElementById("subtitle").innerText = `THE SPECIFIED LOCATION IS ${coord}`
                             window.location.replace(data[issue]["body"]);
